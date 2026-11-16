@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scifact-search"
+version = "0.2.0"
+description = "Reproducible lexical, dense, and learned search experiments"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "numpy==2.3.5", "faiss-cpu==1.11.0", "lightgbm==4.6.0",
+  "onnxruntime==1.21.1", "tokenizers==0.21.4", "nltk==3.9.2",
+  "rank-bm25==0.2.2", "fastapi==0.115.12", "uvicorn==0.34.2",
+  "scikit-learn==1.6.1", "httpx==0.28.1"
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.3.5", "ruff==0.11.13"]
+
+[project.scripts]
+search-lab = "search.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["search*", "discoverylib*"]
