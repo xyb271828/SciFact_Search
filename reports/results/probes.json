@@ -1,0 +1,197 @@
+[
+  {
+    "query": "Can I get a beginner practice activity for Year 5 on fractions that represent the same amount?",
+    "expected": {
+      "topic_id_prefix": "lesson-00-",
+      "grade": 5,
+      "difficulty": "beginner",
+      "content_type": "practice"
+    },
+    "bm25": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-00-5-practice-beginner-1",
+        "lesson-00-5-practice-beginner-3",
+        "lesson-00-5-practice-advanced-1",
+        "lesson-00-5-practice-advanced-3",
+        "lesson-00-5-lesson-beginner-1"
+      ]
+    },
+    "rrf": {
+      "first_exact_rank": 2,
+      "top_results": [
+        "lesson-00-5-practice-advanced-1",
+        "lesson-00-5-practice-beginner-1",
+        "lesson-00-5-practice-advanced-3",
+        "lesson-01-5-practice-advanced-2",
+        "lesson-00-5-practice-beginner-3"
+      ]
+    },
+    "lambdamart": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-00-5-practice-beginner-1",
+        "lesson-00-5-practice-beginner-3",
+        "lesson-00-5-practice-advanced-1",
+        "lesson-00-5-practice-advanced-3",
+        "lesson-00-4-practice-beginner-1"
+      ]
+    }
+  },
+  {
+    "query": "An advanced quiz on paths that make a bulb light, for Grade 6",
+    "expected": {
+      "topic_id_prefix": "lesson-07-",
+      "grade": 6,
+      "difficulty": "advanced",
+      "content_type": "quiz"
+    },
+    "bm25": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-07-6-quiz-advanced-1",
+        "lesson-07-6-quiz-advanced-3",
+        "lesson-07-6-quiz-beginner-1",
+        "lesson-07-6-quiz-beginner-3",
+        "lesson-07-6-lesson-advanced-1"
+      ]
+    },
+    "rrf": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-07-6-quiz-advanced-3",
+        "lesson-07-6-practice-advanced-3",
+        "lesson-07-7-quiz-advanced-3",
+        "lesson-07-6-quiz-advanced-1",
+        "lesson-07-5-quiz-advanced-3"
+      ]
+    },
+    "lambdamart": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-07-6-quiz-advanced-1",
+        "lesson-07-6-quiz-advanced-3",
+        "lesson-07-6-quiz-beginner-1",
+        "lesson-07-6-quiz-beginner-3",
+        "lesson-07-6-quiz-advanced-0"
+      ]
+    }
+  },
+  {
+    "query": "For Grade 4, a beginner lesson about measuring around the edge of a shape",
+    "expected": {
+      "topic_id_prefix": "lesson-03-",
+      "grade": 4,
+      "difficulty": "beginner",
+      "content_type": "lesson"
+    },
+    "bm25": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-03-4-lesson-beginner-1",
+        "lesson-03-4-lesson-beginner-3",
+        "lesson-03-4-lesson-advanced-1",
+        "lesson-03-4-lesson-advanced-3",
+        "lesson-21-4-lesson-beginner-1"
+      ]
+    },
+    "rrf": {
+      "first_exact_rank": 2,
+      "top_results": [
+        "lesson-03-4-practice-advanced-3",
+        "lesson-03-4-lesson-beginner-1",
+        "lesson-03-4-practice-beginner-3",
+        "lesson-03-4-lesson-beginner-3",
+        "lesson-03-4-lesson-advanced-3"
+      ]
+    },
+    "lambdamart": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-03-4-lesson-beginner-1",
+        "lesson-03-4-lesson-beginner-3",
+        "lesson-03-4-lesson-advanced-3",
+        "lesson-03-4-lesson-advanced-1",
+        "lesson-03-3-lesson-beginner-1"
+      ]
+    }
+  },
+  {
+    "query": "Grade 7 project for beginners on how pushes and pulls change movement",
+    "expected": {
+      "topic_id_prefix": "lesson-08-",
+      "grade": 7,
+      "difficulty": "beginner",
+      "content_type": "project"
+    },
+    "bm25": {
+      "first_exact_rank": 3,
+      "top_results": [
+        "lesson-08-7-project-advanced-1",
+        "lesson-08-7-project-advanced-3",
+        "lesson-08-7-project-beginner-1",
+        "lesson-08-7-project-beginner-3",
+        "lesson-08-7-lesson-advanced-1"
+      ]
+    },
+    "rrf": {
+      "first_exact_rank": 1,
+      "top_results": [
+        "lesson-08-7-project-beginner-1",
+        "lesson-08-7-practice-beginner-1",
+        "lesson-08-7-lesson-beginner-1",
+        "lesson-08-7-project-advanced-1",
+        "lesson-08-7-project-beginner-3"
+      ]
+    },
+    "lambdamart": {
+      "first_exact_rank": 3,
+      "top_results": [
+        "lesson-08-7-project-advanced-1",
+        "lesson-08-7-project-advanced-3",
+        "lesson-08-7-project-beginner-1",
+        "lesson-08-7-project-beginner-3",
+        "lesson-08-7-lesson-advanced-1"
+      ]
+    }
+  },
+  {
+    "query": "A beginner practice worksheet for fifth grade about estimating real distances on a map",
+    "expected": {
+      "topic_id_prefix": "lesson-20-",
+      "grade": 5,
+      "difficulty": "beginner",
+      "content_type": "practice"
+    },
+    "bm25": {
+      "first_exact_rank": 5,
+      "top_results": [
+        "lesson-20-3-practice-beginner-1",
+        "lesson-20-3-practice-beginner-3",
+        "lesson-20-4-practice-beginner-1",
+        "lesson-20-4-practice-beginner-3",
+        "lesson-20-5-practice-beginner-1"
+      ]
+    },
+    "rrf": {
+      "first_exact_rank": 2,
+      "top_results": [
+        "lesson-20-3-practice-beginner-3",
+        "lesson-20-5-practice-beginner-3",
+        "lesson-20-6-practice-beginner-3",
+        "lesson-20-4-practice-beginner-3",
+        "lesson-20-7-practice-beginner-3"
+      ]
+    },
+    "lambdamart": {
+      "first_exact_rank": null,
+      "top_results": [
+        "lesson-20-3-practice-beginner-1",
+        "lesson-20-3-practice-beginner-3",
+        "lesson-20-4-practice-beginner-1",
+        "lesson-20-4-practice-beginner-3",
+        "lesson-20-5-practice-advanced-3"
+      ]
+    }
+  }
+]

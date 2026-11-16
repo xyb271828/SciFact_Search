@@ -1,0 +1,557 @@
+{
+  "dataset": "lessons",
+  "documents": 5000,
+  "split_sizes": {
+    "train": 180,
+    "dev": 60,
+    "test": 60
+  },
+  "config": {
+    "analyzer": "plain",
+    "k1": 0.9,
+    "b": 0.4,
+    "rrf_k": 10,
+    "depth": 100
+  },
+  "setup": {
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "python": "3.12.14",
+    "model_threads": 2,
+    "faiss_omp_threads": 1,
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41"
+  },
+  "results": {
+    "bm25_original": {
+      "ndcg@10": 0.6017103881188405,
+      "recall@100": 0.49541666666666667,
+      "mrr@10": 0.8592592592592593,
+      "latency_ms": {
+        "p50": 3.6907520006934647,
+        "p95": 5.03092300004937,
+        "p99": 5.374843999561563
+      }
+    },
+    "bm25_tuned": {
+      "ndcg@10": 0.6053586667624008,
+      "recall@100": 0.4942361111111111,
+      "mrr@10": 0.8592592592592593,
+      "latency_ms": {
+        "p50": 3.6801960004595458,
+        "p95": 5.24018000032811,
+        "p99": 5.485552000209282
+      }
+    },
+    "dense_flat": {
+      "ndcg@10": 0.2910486880192875,
+      "recall@100": 0.49069444444444443,
+      "mrr@10": 0.8708333333333333,
+      "latency_ms": {
+        "p50": 3.7800079999215086,
+        "p95": 5.471860999932687,
+        "p99": 6.426047000786639
+      }
+    },
+    "rrf_flat": {
+      "ndcg@10": 0.49878337345819174,
+      "recall@100": 0.5004166666666666,
+      "mrr@10": 0.9055555555555556,
+      "latency_ms": {
+        "p50": 7.548257000053127,
+        "p95": 11.369947999810393,
+        "p99": 13.838248999491043
+      }
+    },
+    "rrf_hnsw": {
+      "ndcg@10": 0.49878337345819174,
+      "recall@100": 0.5004166666666666,
+      "mrr@10": 0.9055555555555556,
+      "latency_ms": {
+        "p50": 7.133443999919109,
+        "p95": 10.439242000757076,
+        "p99": 11.022081000191974
+      }
+    },
+    "grade_filter_bm25": {
+      "ndcg@10": 0.7120829099838567,
+      "recall@100": 0.2644444444444444,
+      "mrr@10": 1.0,
+      "latency_ms": {
+        "p50": 1.462485999581986,
+        "p95": 2.1951050002826378,
+        "p99": 2.7120180002384586
+      }
+    },
+    "lambdamart": {
+      "ndcg@10": 0.715384033953944,
+      "recall@100": 0.5004166666666666,
+      "mrr@10": 1.0,
+      "latency_ms": {
+        "p50": 8.786559000327543,
+        "p95": 12.69032199979847,
+        "p99": 16.352218000065477
+      }
+    },
+    "lambdamart_depth30": {
+      "ndcg@10": 0.7015631935943941,
+      "recall@100": 0.5004166666666666,
+      "mrr@10": 1.0,
+      "latency_ms": {
+        "p50": 7.720192999840947,
+        "p95": 11.439767000410939,
+        "p99": 18.53710700015654
+      }
+    },
+    "lambdamart_without_constraints": {
+      "ndcg@10": 0.663429430955599,
+      "recall@100": 0.5004166666666666,
+      "mrr@10": 0.9805555555555555,
+      "latency_ms": {
+        "p50": 8.392361000005621,
+        "p95": 12.848831999690447,
+        "p99": 13.358843999412784
+      }
+    }
+  },
+  "comparisons": {
+    "bm25_tuned_minus_bm25_original": {
+      "delta": 0.003648278643560232,
+      "ci95": [
+        0.0,
+        0.008512650168307209
+      ]
+    },
+    "rrf_flat_minus_bm25_tuned": {
+      "delta": -0.10657529330420899,
+      "ci95": [
+        -0.13420294538117397,
+        -0.07762086766366222
+      ]
+    },
+    "lambdamart_minus_rrf_flat": {
+      "delta": 0.21660066049575222,
+      "ci95": [
+        0.17985888661976812,
+        0.25939478409141664
+      ]
+    },
+    "lambdamart_minus_bm25_tuned": {
+      "delta": 0.11002536719154322,
+      "ci95": [
+        0.056301264918791026,
+        0.17115432601544703
+      ]
+    },
+    "lambdamart_minus_grade_filter_bm25": {
+      "delta": 0.003301123970087283,
+      "ci95": [
+        -0.012374947386602138,
+        0.017278762855359033
+      ]
+    },
+    "lambdamart_minus_lambdamart_depth30": {
+      "delta": 0.013820840359549861,
+      "ci95": [
+        0.0037296248717210915,
+        0.025566161375531672
+      ]
+    },
+    "lambdamart_minus_lambdamart_without_constraints": {
+      "delta": 0.051954602998344986,
+      "ci95": [
+        0.022705894263245714,
+        0.08587956945880891
+      ]
+    }
+  },
+  "encoder": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "c9745ed1d9f207416be6d2e6f8de32d1f16199bf"
+  },
+  "ann": {
+    "flat_vector_lookup_ms": {
+      "p50": 0.1556959996378282,
+      "p95": 0.20356799996079644,
+      "p99": 0.34856800084526185
+    },
+    "hnsw": {
+      "32": {
+        "ann_overlap@100": 0.7746666666666666,
+        "relevance_recall@100": 0.44784722222222223,
+        "vector_lookup_ms": {
+          "p50": 0.03604500034271041,
+          "p95": 0.06958599988138303,
+          "p99": 0.16545099970244337
+        }
+      },
+      "64": {
+        "ann_overlap@100": 0.9325,
+        "relevance_recall@100": 0.48909722222222224,
+        "vector_lookup_ms": {
+          "p50": 0.04204400011076359,
+          "p95": 0.08193499979824992,
+          "p99": 0.22601199998462107
+        }
+      },
+      "128": {
+        "ann_overlap@100": 1.0,
+        "relevance_recall@100": 0.49069444444444443,
+        "vector_lookup_ms": {
+          "p50": 0.05766700087406207,
+          "p95": 0.0766160001148819,
+          "p99": 0.09849900015979074
+        }
+      },
+      "256": {
+        "ann_overlap@100": 1.0,
+        "relevance_recall@100": 0.49069444444444443,
+        "vector_lookup_ms": {
+          "p50": 0.10412799929326866,
+          "p95": 0.1539430004413589,
+          "p99": 0.28472099984355737
+        }
+      }
+    }
+  },
+  "error_examples": {
+    "regressions": [
+      {
+        "query_id": "lesson-query-20-00",
+        "delta": -0.3630843679568386,
+        "top3": {
+          "lexical_top3": [
+            "lesson-20-3-practice-beginner-0",
+            "lesson-20-3-practice-beginner-2",
+            "lesson-20-3-practice-beginner-4"
+          ],
+          "dense_top3": [
+            "lesson-20-3-practice-beginner-2",
+            "lesson-20-3-practice-beginner-0",
+            "lesson-20-7-practice-beginner-2"
+          ],
+          "hybrid_top3": [
+            "lesson-20-3-practice-beginner-0",
+            "lesson-20-3-practice-beginner-2",
+            "lesson-20-4-practice-beginner-2"
+          ]
+        },
+        "relevant_added": [
+          "lesson-20-3-lesson-beginner-2",
+          "lesson-20-4-practice-beginner-0",
+          "lesson-20-4-practice-beginner-2"
+        ],
+        "relevant_removed": [
+          "lesson-20-3-practice-advanced-1",
+          "lesson-20-3-practice-advanced-2",
+          "lesson-20-3-practice-advanced-3",
+          "lesson-20-3-practice-advanced-4",
+          "lesson-20-3-practice-beginner-1",
+          "lesson-20-3-practice-beginner-3"
+        ]
+      },
+      {
+        "query_id": "lesson-query-20-04",
+        "delta": -0.35061683051240444,
+        "top3": {
+          "lexical_top3": [
+            "lesson-20-7-lesson-beginner-0",
+            "lesson-20-7-lesson-beginner-2",
+            "lesson-20-7-lesson-beginner-4"
+          ],
+          "dense_top3": [
+            "lesson-20-7-lesson-beginner-0",
+            "lesson-20-7-practice-beginner-0",
+            "lesson-20-6-practice-beginner-0"
+          ],
+          "hybrid_top3": [
+            "lesson-20-7-lesson-beginner-0",
+            "lesson-20-7-lesson-beginner-2",
+            "lesson-20-7-practice-beginner-0"
+          ]
+        },
+        "relevant_added": [
+          "lesson-20-6-lesson-beginner-0",
+          "lesson-20-7-practice-beginner-0",
+          "lesson-20-7-practice-beginner-2"
+        ],
+        "relevant_removed": [
+          "lesson-20-7-lesson-advanced-1",
+          "lesson-20-7-lesson-advanced-2",
+          "lesson-20-7-lesson-advanced-3",
+          "lesson-20-7-lesson-advanced-4",
+          "lesson-20-7-lesson-beginner-1",
+          "lesson-20-7-lesson-beginner-3"
+        ]
+      },
+      {
+        "query_id": "lesson-query-20-08",
+        "delta": -0.3316506848802052,
+        "top3": {
+          "lexical_top3": [
+            "lesson-20-6-quiz-beginner-0",
+            "lesson-20-6-quiz-beginner-2",
+            "lesson-20-6-quiz-beginner-4"
+          ],
+          "dense_top3": [
+            "lesson-20-7-quiz-beginner-0",
+            "lesson-20-6-quiz-beginner-0",
+            "lesson-20-5-quiz-beginner-0"
+          ],
+          "hybrid_top3": [
+            "lesson-20-6-quiz-beginner-0",
+            "lesson-20-6-quiz-beginner-2",
+            "lesson-20-6-quiz-beginner-4"
+          ]
+        },
+        "relevant_added": [
+          "lesson-20-5-quiz-beginner-0",
+          "lesson-20-6-lesson-beginner-0",
+          "lesson-20-7-quiz-beginner-0"
+        ],
+        "relevant_removed": [
+          "lesson-20-6-quiz-advanced-1",
+          "lesson-20-6-quiz-advanced-2",
+          "lesson-20-6-quiz-advanced-3",
+          "lesson-20-6-quiz-advanced-4",
+          "lesson-20-6-quiz-beginner-1",
+          "lesson-20-6-quiz-beginner-3"
+        ]
+      },
+      {
+        "query_id": "lesson-query-07-00",
+        "delta": -0.26090332067365907,
+        "top3": {
+          "lexical_top3": [
+            "lesson-07-3-project-beginner-0",
+            "lesson-07-3-project-beginner-2",
+            "lesson-07-3-project-beginner-4"
+          ],
+          "dense_top3": [
+            "lesson-07-3-practice-beginner-0",
+            "lesson-07-7-practice-beginner-0",
+            "lesson-07-7-project-beginner-0"
+          ],
+          "hybrid_top3": [
+            "lesson-07-3-project-beginner-0",
+            "lesson-07-3-practice-beginner-0",
+            "lesson-07-3-project-beginner-2"
+          ]
+        },
+        "relevant_added": [
+          "lesson-07-4-practice-beginner-0"
+        ],
+        "relevant_removed": [
+          "lesson-07-3-lesson-beginner-4",
+          "lesson-07-3-project-advanced-2",
+          "lesson-07-3-project-advanced-4",
+          "lesson-07-3-project-beginner-4"
+        ]
+      },
+      {
+        "query_id": "lesson-query-08-05",
+        "delta": -0.23527309637748978,
+        "top3": {
+          "lexical_top3": [
+            "lesson-08-3-quiz-beginner-1",
+            "lesson-08-3-quiz-beginner-3",
+            "lesson-08-3-quiz-advanced-1"
+          ],
+          "dense_top3": [
+            "lesson-08-3-practice-beginner-3",
+            "lesson-08-4-practice-beginner-3",
+            "lesson-08-3-practice-advanced-3"
+          ],
+          "hybrid_top3": [
+            "lesson-08-3-practice-beginner-3",
+            "lesson-08-3-practice-beginner-1",
+            "lesson-08-3-practice-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-08-3-practice-advanced-3",
+          "lesson-08-4-practice-beginner-3"
+        ],
+        "relevant_removed": [
+          "lesson-08-3-lesson-beginner-3",
+          "lesson-08-3-project-beginner-1",
+          "lesson-08-3-project-beginner-3"
+        ]
+      }
+    ],
+    "improvements": [
+      {
+        "query_id": "lesson-query-00-03",
+        "delta": 0.21801322127381834,
+        "top3": {
+          "lexical_top3": [
+            "lesson-00-3-project-advanced-1",
+            "lesson-00-3-project-advanced-3",
+            "lesson-00-3-project-beginner-1"
+          ],
+          "dense_top3": [
+            "lesson-00-6-practice-advanced-3",
+            "lesson-00-6-project-advanced-3",
+            "lesson-00-6-project-advanced-1"
+          ],
+          "hybrid_top3": [
+            "lesson-00-3-project-advanced-3",
+            "lesson-00-3-project-advanced-1",
+            "lesson-00-6-project-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-00-6-practice-advanced-3",
+          "lesson-00-6-project-advanced-1",
+          "lesson-00-6-project-advanced-3"
+        ],
+        "relevant_removed": []
+      },
+      {
+        "query_id": "lesson-query-20-03",
+        "delta": 0.16893725717194977,
+        "top3": {
+          "lexical_top3": [
+            "lesson-20-3-project-advanced-1",
+            "lesson-20-3-project-advanced-3",
+            "lesson-20-3-project-beginner-1"
+          ],
+          "dense_top3": [
+            "lesson-20-7-project-advanced-3",
+            "lesson-20-6-project-advanced-3",
+            "lesson-20-5-project-advanced-3"
+          ],
+          "hybrid_top3": [
+            "lesson-20-3-project-advanced-3",
+            "lesson-20-4-project-advanced-3",
+            "lesson-20-5-project-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-20-5-project-beginner-3",
+          "lesson-20-6-project-advanced-3",
+          "lesson-20-6-project-beginner-3",
+          "lesson-20-7-project-advanced-3"
+        ],
+        "relevant_removed": [
+          "lesson-20-5-project-advanced-1"
+        ]
+      },
+      {
+        "query_id": "lesson-query-08-03",
+        "delta": 0.11770047484329706,
+        "top3": {
+          "lexical_top3": [
+            "lesson-08-3-project-advanced-1",
+            "lesson-08-3-project-advanced-3",
+            "lesson-08-3-project-beginner-1"
+          ],
+          "dense_top3": [
+            "lesson-08-7-project-advanced-3",
+            "lesson-08-6-project-advanced-3",
+            "lesson-08-7-practice-advanced-3"
+          ],
+          "hybrid_top3": [
+            "lesson-08-3-project-advanced-3",
+            "lesson-08-7-project-advanced-3",
+            "lesson-08-4-project-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-08-6-project-advanced-3",
+          "lesson-08-7-practice-advanced-3",
+          "lesson-08-7-project-advanced-3"
+        ],
+        "relevant_removed": [
+          "lesson-08-5-project-advanced-1"
+        ]
+      },
+      {
+        "query_id": "lesson-query-00-07",
+        "delta": 0.08565827311768023,
+        "top3": {
+          "lexical_top3": [
+            "lesson-00-3-practice-advanced-1",
+            "lesson-00-3-practice-advanced-3",
+            "lesson-00-3-practice-beginner-1"
+          ],
+          "dense_top3": [
+            "lesson-00-5-practice-advanced-3",
+            "lesson-00-7-practice-advanced-3",
+            "lesson-00-4-practice-advanced-3"
+          ],
+          "hybrid_top3": [
+            "lesson-00-3-practice-advanced-3",
+            "lesson-00-5-practice-advanced-3",
+            "lesson-00-4-practice-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-00-6-practice-advanced-3"
+        ],
+        "relevant_removed": [
+          "lesson-00-4-practice-beginner-1",
+          "lesson-00-4-practice-beginner-3"
+        ]
+      },
+      {
+        "query_id": "lesson-query-07-07",
+        "delta": 0.06305169558290571,
+        "top3": {
+          "lexical_top3": [
+            "lesson-07-3-project-advanced-1",
+            "lesson-07-3-project-advanced-3",
+            "lesson-07-3-project-beginner-1"
+          ],
+          "dense_top3": [
+            "lesson-07-7-project-advanced-3",
+            "lesson-07-5-project-advanced-3",
+            "lesson-07-7-practice-advanced-3"
+          ],
+          "hybrid_top3": [
+            "lesson-07-3-project-advanced-3",
+            "lesson-07-5-project-advanced-3",
+            "lesson-07-7-project-advanced-3"
+          ]
+        },
+        "relevant_added": [
+          "lesson-07-5-project-beginner-3",
+          "lesson-07-6-project-advanced-3"
+        ],
+        "relevant_removed": [
+          "lesson-07-4-project-advanced-1",
+          "lesson-07-4-project-beginner-1",
+          "lesson-07-5-project-advanced-1"
+        ]
+      }
+    ]
+  },
+  "query_slices": {
+    "explicit_difficulty": {
+      "queries": 30,
+      "ndcg@10": {
+        "bm25_original": 0.7206757046802725,
+        "bm25_tuned": 0.727972261967393,
+        "dense_flat": 0.2797162569651054,
+        "rrf_flat": 0.556721216187469,
+        "rrf_hnsw": 0.556721216187469,
+        "grade_filter_bm25": 0.727972261967393,
+        "lambdamart": 0.7227966273109329,
+        "lambdamart_depth30": 0.709641068170455,
+        "lambdamart_without_constraints": 0.7212257573579238
+      }
+    },
+    "no_difficulty_given": {
+      "queries": 30,
+      "ndcg@10": {
+        "bm25_original": 0.48274507155740853,
+        "bm25_tuned": 0.48274507155740853,
+        "dense_flat": 0.30238111907346965,
+        "rrf_flat": 0.4408455307289145,
+        "rrf_hnsw": 0.4408455307289145,
+        "grade_filter_bm25": 0.6961935580003205,
+        "lambdamart": 0.707971440596955,
+        "lambdamart_depth30": 0.6934853190183332,
+        "lambdamart_without_constraints": 0.6056331045532742
+      }
+    }
+  }
+}
