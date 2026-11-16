@@ -75,6 +75,19 @@ One Uvicorn process on AMD EPYC 9V74 80-Core Processor with ONNX CPU inference, 
 
 Reranking 30 candidates instead of 100 reduced measured HTTP p99 from **26.65 to 24.75 ms** and reduced NDCG@10 from **0.7154 to 0.7016**. A single run with 300 requests per setup provides a local performance observation. A repeat under sustained traffic and larger catalogs is needed before inferring capacity or stable tail differences. Docker packaging and CI configuration are present. This run used a local Python process.
 
-## Scope and pending evidence
+## MSLR-WEB10K Fold 1
 
-SciFact gives a public retrieval result on a small scientific corpus. The lesson workload is synthetic, and product-specific ranking results depend on its label rules and candidate coverage. The MSLR runner was exercised on LETOR-format fixtures. Run it on official Fold 1 after obtaining the data under the Microsoft agreement to add an independent real-label ranking benchmark. No real learner records, online engagement measurements, or deployed traffic were used.
+This independent learning-to-rank experiment uses the official query splits and all 136 supplied features. The training, validation, and test files contain 6,000, 2,000, and 2,000 disjoint query groups, respectively. LambdaMART was fitted on grouped training examples with validation-only early stopping. Both methods score the same test candidates. The title BM25 baseline sorts candidates by the dataset's precomputed feature 108.
+
+| Ranker | Test NDCG@10 |
+|---|---:|
+| Title BM25 (feature 108) | 0.2750 |
+| LightGBM LambdaMART | 0.4680 |
+
+The paired difference was **+0.1930** (95% CI **[+0.1839, +0.2029]**). This compares a learned multi-feature scorer with a single title-only lexical feature on fixed candidates. It measures ranking quality on MSLR and provides no estimate of candidate retrieval gains or the effect of any one feature.
+
+The model recorded **1.602 ms p99** for CPU scoring of one query's supplied candidates with one inference thread. This excludes retrieval, the offline generation of features, and HTTP overhead. See the [benchmark output](results/mslr.json).
+
+## Scope
+
+SciFact gives a public retrieval result on a small scientific corpus. The lesson workload is synthetic, and product-specific ranking results depend on its label rules and candidate coverage. MSLR evaluates an independent fixed-candidate ranking task with its own relevance labels. No real learner records, online engagement measurements, or deployed traffic were used.

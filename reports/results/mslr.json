@@ -1,0 +1,27 @@
+{
+  "dataset": "MSLR-WEB10K Fold 1",
+  "train_queries": 6000,
+  "dev_queries": 2000,
+  "test_queries": 2000,
+  "bm25_title_ndcg@10": 0.2750386811678773,
+  "lambdamart_ndcg@10": 0.46802470284789893,
+  "delta": {
+    "delta": 0.19298602168002163,
+    "ci95": [
+      0.18390749220757607,
+      0.20294106257574968
+    ]
+  },
+  "prediction_latency_ms": {
+    "p50": 0.5298429996400955,
+    "p95": 1.1313140003039734,
+    "p99": 1.6023970001697307
+  },
+  "setup": {
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "python": "3.12.14",
+    "model_threads": 4,
+    "faiss_omp_threads": 1,
+    "os": "Linux-6.18.57-x86_64-with-glibc2.41"
+  }
+}

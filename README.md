@@ -51,10 +51,10 @@ docker run --rm -p 127.0.0.1:8000:8000 \
 After obtaining [MSLR-WEB10K from Microsoft Research](https://www.microsoft.com/en-us/research/project/mslr/overview/) under its dataset agreement, point the runner at the extracted `Fold1` directory:
 
 ```bash
-search-lab mslr --fold /path/to/Fold1 --output runs/mslr.json
+search-lab mslr --fold /path/to/Fold1 --output runs/mslr.json --threads 4
 ```
 
-The runner fits on `train.txt`, uses `vali.txt` for early stopping, and compares the final model with MSLR's precomputed title BM25 feature on `test.txt`. The loader and training path have a fixture check. A score on the official fold remains pending.
+The runner fits on `train.txt`, uses `vali.txt` for early stopping, and compares the final model with MSLR's precomputed title BM25 feature on `test.txt`. On 2,000 official test queries, LambdaMART scored **0.4680** NDCG@10 versus **0.2750** for title BM25. The paired difference was **+0.1930** (95% CI **[+0.1839, +0.2029]**). See the [benchmark output](reports/results/mslr.json).
 
 ## Layout and inputs
 
